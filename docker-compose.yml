@@ -134,6 +134,7 @@ services:
       environment:
         - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
         - DOCKER_HOST=tcp://docker-in-docker:2375
+        - LOG_CHANNEL=stderr-json
       networks:
         - frontend
         - backend
@@ -204,6 +205,7 @@ services:
         - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
         - DOCKER_HOST=tcp://docker-in-docker:2375
         - FAKETIME=${PHP_FPM_FAKETIME}
+        - LOG_CHANNEL=stderr-json
       depends_on:
         - workspace
       networks:
@@ -242,6 +244,8 @@ services:
         - "dockerhost:${DOCKER_HOST_IP}"
       networks:
         - backend
+      environment:
+        - LOG_CHANNEL=stderr-json
 ### Laravel Horizon ############################################
     laravel-horizon:
       build:
