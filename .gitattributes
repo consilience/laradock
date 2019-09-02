@@ -1,0 +1,5 @@
+# Disable line ending conversions. See SO 99330004
+* -text
+* -crlf
+# Another way to handle this that does change line endings, so not ideal.
+#* text eol=lf
